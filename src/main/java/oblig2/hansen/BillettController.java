@@ -8,12 +8,28 @@ import java.util.List;
 @RestController
 public class BillettController {
     private final List<Billett> alleBilletter = new ArrayList<>();
-    @GetMapping("/Lagre")
-    public void Lagrebillett () {
+    @GetMapping("/LagreogSkrivut")
+    public String Lagrebillett (Billett nyBillett) {
+            alleBilletter.add(nyBillett);
 
+
+        String ut = "<table><tr>" +
+                "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
+                "<th>E-post</th> </tr>";
+
+
+        for (Billett i : alleBilletter){
+            ut +="<tr>" +  "<td>"+ i.getFornavn() + " " +i.getEtternavn() + "</td>" + "<td>" +i.getFilm() +"</td>" + "<td>"
+                    +i.getTelefonnr()+ "</td>" + "<td>" + i.getAntall() +
+                    "</td>" + "<td>" + i.getEpost() + "</td>" + "</tr>";
+        }
+
+        ut += "</table>";
+        return ut;
     }
-    @GetMapping("/Skrivut")
-    public String Listeut(){
-        return "";
+
+    @GetMapping("/SlettBilletter")
+    public void SlettBilletter(){
+        alleBilletter.clear();
     }
 }

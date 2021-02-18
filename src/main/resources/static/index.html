@@ -3,8 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src = "//code.jquery.com/jquery-3.4.1.js"> </script>
+    <script type = "application/javascript" src = "Oblig2Script.js">
+    </script>
 </head>
 <body>
+<h1>Bestilling av Kinobilletter</h1>
+<table>
+    <label for = "Filmer">Velg film: </label>
+    <select id = "Filmer">
+        <option value = "Planet of the apes">Planet of the apes</option>
+        <option value = "Jumanju">Jumanju</option>
+        <option value = "Cars 2">Cars 2</option>
+    </select>
+
+
+    <tr>
+        <td> <label for = "Antall">Antall: </label></td>
+        <td><input type = "Number" id = "Antall"> </td> <td><div id = "Nummererror"> </div></td>
+        <br> <br>
+    </tr>
+
+    <tr>
+        <td> <label for = "Fornavn">Fornavn: </label></td>
+        <td> <input type = "Text" id = "Fornavn"> </td> <td> <div id = "Fornavnerror"></div></td>
+    </tr>
+
+    <tr>
+        <td> <label for = "Etternavn">Etternavn: </label></td>
+        <td> <input type = "Text" id = "Etternavn"> </td> <td><div id = "Etternavnerror"></div></td>
+    </tr>
+
+    <tr>
+        <td>   <label for = "Telefonnr">Telefonnr: </label></td>
+        <td> <input type = "Number" id = "Telefonnr">   </td> <td><div id = "Telefonerror"></div></td>
+    </tr>
+
+    <tr>
+        <td> <label for = "Epost">Epost: </label></td>
+        <td> <input type = "Text" id = "Epost">  </td> <td><div id = "Eposterror"></div></td>
+    </tr>
+
+
+</table>
+<button onclick = "Kjopbillett()">
+    Kjøp billett
+</button>
+
+<h2> Alle billetter </h2>
+<button onclick = "Slettbilletter()"> Slett billetter </button>
+<div id = "Billettliste">
+</div>
+
+
+
+
+
+
+
+
 
 </body>
 </html>
