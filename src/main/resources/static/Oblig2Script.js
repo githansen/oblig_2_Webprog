@@ -1,5 +1,22 @@
 
+// Oppgaven spør ikke etter dette, men har gjort det slik at listen med billetter hentes fra server og skrives
+// ut når siden lastes inn
+$(document).ready(function(){
+   $.get("/HentBilletter", function (vogner) {
+     let skrivut =   "<table><tr>" +
+         "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
+         "<th>E-post</th> </tr>"
+       for (const i of vogner){
+           skrivut += "<tr><td>"+ i.fornavn + " " +i.etternavn + "</td>" + "<td>" +i.film +"</td>" + "<td>"
+               +i.telefonnr+ "</td>" + "<td>" + i.antall +
+               "</td>" + "<td>" + i.epost + "</td>" + "</tr>"
+       }
+       skrivut += "</table>"
+       $("#Billettliste").html(skrivut)
+   });
 
+});
+        //funksjon for kjøp og listing av billett
     function Kjopbillett() {
         const tall = $("#Antall").val();
         const Telefonnr = $("#Telefonnr").val();
@@ -58,7 +75,7 @@
 
         if (inputvalidering == 0){
             $.get("/Lagre",Billett, function(){
-               hent()
+               hente()
             })
 
         }
@@ -69,10 +86,11 @@
                 $("#" + IDliste2[i]).val("")
             }}
 
-        function hent(){
+        function hente() {
             $.get("/HentBilletter", function (data) {
-               formaterData(data);
+                formaterData(data);
             });
+
         }
             function formaterData(Billetter){
                 let ut = "<table><tr>" +
@@ -90,6 +108,8 @@
             }
 
     }
+
+
 
     //funksjon for å slette billettene.
    function Slettbilletter() {

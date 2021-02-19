@@ -25,7 +25,7 @@ public class Billett {
     }
 
     public void setAntall(int antall) {
-        antall = antall;
+        this.antall = antall;
     }
 
     public String getFilm() {
