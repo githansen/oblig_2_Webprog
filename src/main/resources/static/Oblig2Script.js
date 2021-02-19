@@ -8,21 +8,21 @@
         let inputvalidering = 0;
         //Billettens attributter, fra input
         const Billett = {
-            Antall: Number(tall),
-            Film: $("#Filmer").val(),
-            Fornavn: $("#Fornavn").val(),
-            Etternavn: $("#Etternavn").val(),
-            Telefonnr: Number(Telefonnr),
-            Epost: $("#Epost").val()
+            antall: Number(tall),
+            film: $("#Filmer").val(),
+            fornavn: $("#Fornavn").val(),
+            etternavn: $("#Etternavn").val(),
+            telefonnr: Number(Telefonnr),
+            epost: $("#Epost").val()
         }
 
         //array med verdier fra input
         let inputliste = [];
-        inputliste.push(Billett.Fornavn);
-        inputliste.push(Billett.Etternavn);
-        inputliste.push(Billett.Antall);
-        inputliste.push(Billett.Telefonnr);
-        inputliste.push(Billett.Epost);
+        inputliste.push(Billett.fornavn);
+        inputliste.push(Billett.etternavn);
+        inputliste.push(Billett.antall);
+        inputliste.push(Billett.telefonnr);
+        inputliste.push(Billett.epost);
 
         //Array med ID-er til feilmeldinger.
         let IDliste = [];

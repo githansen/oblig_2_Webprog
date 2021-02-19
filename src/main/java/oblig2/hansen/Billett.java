@@ -1,70 +1,70 @@
 package oblig2.hansen;
 
 public class Billett {
-    private int Antall;
-    private String Film;
-    private String Fornavn;
-    private String Etternavn;
-    private int Telefonnr;
-    private String Epost;
+    private int antall;
+    private String film;
+    private String fornavn;
+    private String etternavn;
+    private int telefonnr;
+    private String epost;
 
-    public Billett(int Antall, String Film, String Fornavn, String Etternavn, int Telefonnr, String Epost){
-        this.Antall = Antall;
-        this.Film = Film;
-        this.Fornavn = Fornavn;
-        this.Etternavn = Etternavn;
-        this.Telefonnr = Telefonnr;
-        this.Epost = Epost;
+    public Billett(int antall, String film, String fornavn, String etternavn, int telefonnr, String epost){
+        this.antall = antall;
+        this.film = film;
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
+        this.telefonnr = telefonnr;
+        this.epost = epost;
     }
     public Billett(){
 
     }
 
     public int getAntall() {
-        return Antall;
+        return antall;
     }
 
     public void setAntall(int antall) {
-        Antall = antall;
+        antall = antall;
     }
 
     public String getFilm() {
-        return Film;
+        return film;
     }
 
     public String getFornavn() {
-        return Fornavn;
+        return fornavn;
     }
 
     public String getEtternavn() {
-        return Etternavn;
+        return etternavn;
     }
 
     public void setEtternavn(String etternavn) {
-        Etternavn = etternavn;
+       this.etternavn = etternavn;
     }
 
     public void setFornavn(String fornavn) {
-        Fornavn = fornavn;
+        this.fornavn = fornavn;
     }
 
     public void setFilm(String film) {
-        Film = film;
+        this.film = film;
     }
 
     public int getTelefonnr() {
-        return Telefonnr;
+        return telefonnr;
     }
 
     public void setTelefonnr(int telefonnr) {
-        Telefonnr = telefonnr;
+        this.telefonnr = telefonnr;
     }
 
     public String getEpost() {
-        return Epost;
+        return epost;
     }
 
     public void setEpost(String epost) {
-        Epost = epost;
+        this.epost = epost;
     }
 }
