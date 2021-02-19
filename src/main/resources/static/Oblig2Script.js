@@ -52,21 +52,42 @@
                 $("#" + IDliste[i]).html("")
             }
         }
+
+
         //Dersom alle felt er fylt ut, vil den nye billetten legges til arrayet.
 
         if (inputvalidering == 0){
-            $.get("/LagreogSkrivut",Billett, function(data){
-                $("#Billettliste").html(data)
+            $.get("/Lagre",Billett, function(){
+               hent()
             })
 
         }
 
         if (inputvalidering == 0){
 
-            for (i = 0; i < IDliste2.length; i++) {
+            for (let i = 0; i < IDliste2.length; i++) {
                 $("#" + IDliste2[i]).val("")
             }}
 
+        function hent(){
+            $.get("/HentBilletter", function (data) {
+               formaterData(data);
+            });
+        }
+            function formaterData(Billetter){
+                let ut = "<table><tr>" +
+                    "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
+                    "<th>E-post</th> </tr>"
+
+                for (const Billett of Billetter) {
+                    ut +="<tr><td>"+ Billett.fornavn + " " +Billett.etternavn + "</td>" + "<td>" +Billett.film +"</td>" + "<td>"
+                        +Billett.telefonnr+ "</td>" + "<td>" + Billett.antall +
+                        "</td>" + "<td>" + Billett.epost + "</td>" + "</tr>"
+                }
+
+                ut += "</table>"
+                $("#Billettliste").html(ut)
+            }
 
     }
 
