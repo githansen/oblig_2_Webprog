@@ -3,16 +3,24 @@
 // ut når siden lastes inn
 $(document).ready(function(){
    $.get("/HentBilletter", function (vogner) {
-     let skrivut =   "<table><tr>" +
-         "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
-         "<th>E-post</th> </tr>"
+       let skrivut = ""
+     if (vogner.length > 0) {
+         skrivut = "<table class = 'table table-striped table-bordered'><tr>" +
+             "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
+             "<th>E-post</th> </tr>"
+     }
        for (const i of vogner){
            skrivut += "<tr><td>"+ i.fornavn + " " +i.etternavn + "</td>" + "<td>" +i.film +"</td>" + "<td>"
                +i.telefonnr+ "</td>" + "<td>" + i.antall +
                "</td>" + "<td>" + i.epost + "</td>" + "</tr>"
        }
-       skrivut += "</table>"
+       let antallbilletter = vogner.length;
+       if (vogner.length > 0) {
+           skrivut += "</table>"
+       }
+       $("#billetterkjopt").html("<h3>Antall billetter solgt: " + antallbilletter + "</h3>")
        $("#Billettliste").html(skrivut)
+
    });
 
 });
@@ -93,18 +101,23 @@ $(document).ready(function(){
 
         }
             function formaterData(Billetter){
-                let ut = "<table><tr>" +
-                    "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
-                    "<th>E-post</th> </tr>"
-
+                let ut = "";
+                if (Billetter.length > 0) {
+                     ut = "<table class = 'table table-striped table-bordered'><tr> " +
+                        "<th>Navn</th><th>Film</th><th>Telefonnr</th> <th>Antall</th>" +
+                        "<th>E-post</th> </tr>"
+                }
                 for (const Billett of Billetter) {
                     ut +="<tr><td>"+ Billett.fornavn + " " +Billett.etternavn + "</td>" + "<td>" +Billett.film +"</td>" + "<td>"
                         +Billett.telefonnr+ "</td>" + "<td>" + Billett.antall +
                         "</td>" + "<td>" + Billett.epost + "</td>" + "</tr>"
                 }
-
-                ut += "</table>"
+                    if (Billetter.length > 0) {
+                        ut += "</table>"
+                    }
+                let antallbilletter = Billetter.length;
                 $("#Billettliste").html(ut)
+                $("#billetterkjopt").html("<h3>Antall billetter solgt: " + antallbilletter + "</h3>")
             }
 
     }
@@ -118,5 +131,6 @@ $(document).ready(function(){
        });
 
         $("#Billettliste").html("")
+       $("#billetterkjopt").html("<h3>Antall billetter solgt: 0 </h3>")
     }
 
