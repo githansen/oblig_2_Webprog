@@ -14,11 +14,11 @@ $(document).ready(function(){
                +i.telefonnr+ "</td>" + "<td>" + i.antall +
                "</td>" + "<td>" + i.epost + "</td>" + "</tr>"
        }
-       let antallbilletter = vogner.length;
+
        if (vogner.length > 0) {
            skrivut += "</table>"
        }
-       $("#billetterkjopt").html("<h3>Antall billetter solgt: " + antallbilletter + "</h3>")
+
        $("#Billettliste").html(skrivut)
 
    });
@@ -82,7 +82,7 @@ $(document).ready(function(){
         //Dersom alle felt er fylt ut, vil den nye billetten legges til arrayet.
 
         if (inputvalidering == 0){
-            $.get("/Lagre",Billett, function(){
+            $.post("/Lagre",Billett, function(){
                hente()
             })
 
@@ -115,9 +115,9 @@ $(document).ready(function(){
                     if (Billetter.length > 0) {
                         ut += "</table>"
                     }
-                let antallbilletter = Billetter.length;
+
                 $("#Billettliste").html(ut)
-                $("#billetterkjopt").html("<h3>Antall billetter solgt: " + antallbilletter + "</h3>")
+
             }
 
     }
